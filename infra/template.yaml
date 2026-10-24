@@ -1,0 +1,63 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  VigilAgent — autonomous visual inspection agent (OpenCV 5) on AWS.
+  API Gateway -> Lambda ARM64 container (FastAPI + OpenCV 5) + S3 evidence
+  store + DynamoDB inspection index + CloudWatch observability.
+
+Resources:
+  EvidenceBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  InspectionTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: inspection_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: inspection_id
+          KeyType: HASH
+
+  VigilFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Architectures: [arm64]
+      MemorySize: 2048
+      Timeout: 60
+      Environment:
+        Variables:
+          VIGIL_BUCKET: !Ref EvidenceBucket
+          VIGIL_TABLE: !Ref InspectionTable
+      Policies:
+        - S3CrudPolicy:
+            BucketName: !Ref EvidenceBucket
+        - DynamoDBCrudPolicy:
+            TableName: !Ref InspectionTable
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ../
+      DockerTag: vigilagent-v1
+
+Outputs:
+  EndpointUrl:
+    Description: Working web endpoint (demo page at /, POST /inspect)
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/"
+  EvidenceBucketName:
+    Value: !Ref EvidenceBucket
+  InspectionTableName:
+    Value: !Ref InspectionTable
