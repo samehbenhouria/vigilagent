@@ -49,7 +49,7 @@ Resources:
             Path: /{proxy+}
             Method: ANY
     Metadata:
-      Dockerfile: Dockerfile
+      Dockerfile: infra/Dockerfile
       DockerContext: ../
       DockerTag: vigilagent-v1
 
