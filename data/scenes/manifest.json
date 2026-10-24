@@ -1,0 +1,92 @@
+{
+  "zone_id": 7,
+  "expected_qr": "ZONE-A|LOT-2026-1042|ITEMSET-STD",
+  "slots": [
+    [
+      120,
+      180,
+      220,
+      160
+    ],
+    [
+      440,
+      180,
+      220,
+      160
+    ],
+    [
+      760,
+      180,
+      220,
+      160
+    ],
+    [
+      120,
+      520,
+      220,
+      160
+    ]
+  ],
+  "cases": [
+    {
+      "case": "clean",
+      "file": "clean.png",
+      "defects": []
+    },
+    {
+      "case": "stain",
+      "file": "stain.png",
+      "defects": [
+        "stain"
+      ]
+    },
+    {
+      "case": "missing_item",
+      "file": "missing_item.png",
+      "defects": [
+        "missing_item"
+      ]
+    },
+    {
+      "case": "foreign_object",
+      "file": "foreign_object.png",
+      "defects": [
+        "foreign_object"
+      ]
+    },
+    {
+      "case": "wrong_label",
+      "file": "wrong_label.png",
+      "defects": [
+        "wrong_label"
+      ]
+    },
+    {
+      "case": "clean_blur",
+      "file": "clean_blur.png",
+      "defects": []
+    },
+    {
+      "case": "clean_low_contrast",
+      "file": "clean_low_contrast.png",
+      "defects": []
+    },
+    {
+      "case": "clean_underexposed",
+      "file": "clean_underexposed.png",
+      "defects": []
+    },
+    {
+      "case": "clean_perspective",
+      "file": "clean_perspective.png",
+      "defects": []
+    },
+    {
+      "case": "stain_blur",
+      "file": "stain_blur.png",
+      "defects": [
+        "stain"
+      ]
+    }
+  ]
+}
