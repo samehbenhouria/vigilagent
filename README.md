@@ -47,14 +47,25 @@ python3 -m venv .venv
 .venv/bin/uvicorn app.main:app --port 8080   # demo at http://localhost:8080/
 ```
 
+## Live endpoint (deployed 2026-10-24)
+
+**https://t1077oiom8.execute-api.us-east-1.amazonaws.com/** — demo page
+(bundled example scenes + upload), `GET /health`, `POST /inspect`.
+Deployed with AWS SAM (stack `vigilagent`, region us-east-1) exactly as
+declared below; verified live: health returns OpenCV 5.0.0, the stain
+example returns FAIL with the finding, bbox, trace and S3/DynamoDB
+persistence metadata.
+
 ## Deploy on AWS
 
 Prerequisites: an AWS account, AWS SAM CLI, Docker.
 
 ```bash
-cd infra
-sam build
-sam deploy --guided        # creates: HttpApi, Lambda (arm64 container),
+export AWS_DEFAULT_REGION=us-east-1
+sam build -t infra/template.yaml
+sam deploy --stack-name vigilagent --resolve-s3 --resolve-image-repos \
+           --capabilities CAPABILITY_IAM
+                           # creates: HttpApi, Lambda (arm64 container),
                            # S3 evidence bucket, DynamoDB index
 ```
 
