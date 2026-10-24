@@ -1,0 +1,122 @@
+{
+  "core": {
+    "passed": 8,
+    "total": 8,
+    "rows": [
+      {
+        "case": "rotated8",
+        "expected": [],
+        "verdict": "PASS",
+        "found": [],
+        "duration_s": 2.043,
+        "ok": true
+      },
+      {
+        "case": "translated",
+        "expected": [],
+        "verdict": "PASS",
+        "found": [],
+        "duration_s": 2.251,
+        "ok": true
+      },
+      {
+        "case": "stain_and_missing",
+        "expected": [
+          "stain",
+          "missing_item"
+        ],
+        "verdict": "FAIL",
+        "found": [
+          "missing_item",
+          "stain"
+        ],
+        "duration_s": 2.158,
+        "ok": true
+      },
+      {
+        "case": "displaced_item",
+        "expected": [
+          "slot_anomaly"
+        ],
+        "verdict": "FAIL",
+        "found": [
+          "slot_anomaly"
+        ],
+        "duration_s": 1.443,
+        "ok": true
+      },
+      {
+        "case": "marker_occluded",
+        "expected": [
+          "ESCALATE"
+        ],
+        "verdict": "HUMAN_REVIEW",
+        "found": [],
+        "duration_s": 0.083,
+        "ok": true
+      },
+      {
+        "case": "blank",
+        "expected": [
+          "ESCALATE"
+        ],
+        "verdict": "HUMAN_REVIEW",
+        "found": [],
+        "duration_s": 0.258,
+        "ok": true
+      },
+      {
+        "case": "heavy_blur",
+        "expected": [
+          "ESCALATE"
+        ],
+        "verdict": "HUMAN_REVIEW",
+        "found": [],
+        "duration_s": 11.346,
+        "ok": true
+      },
+      {
+        "case": "noisy_clean",
+        "expected": [],
+        "verdict": "PASS",
+        "found": [],
+        "duration_s": 15.876,
+        "ok": true
+      }
+    ]
+  },
+  "challenge": {
+    "passed": 2,
+    "total": 2,
+    "rows": [
+      {
+        "case": "small_stain",
+        "expected": [
+          "stain"
+        ],
+        "verdict": "FAIL",
+        "found": [
+          "stain"
+        ],
+        "duration_s": 0.833,
+        "ok": true
+      },
+      {
+        "case": "rotated_stain",
+        "expected": [
+          "stain"
+        ],
+        "verdict": "FAIL",
+        "found": [
+          "stain"
+        ],
+        "duration_s": 1.484,
+        "ok": true
+      }
+    ]
+  },
+  "latency_s": {
+    "mean": 3.778,
+    "max": 15.876
+  }
+}
