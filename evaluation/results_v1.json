@@ -1,0 +1,130 @@
+{
+  "total": 10,
+  "correct": 10,
+  "rows": [
+    {
+      "case": "clean",
+      "expected": [],
+      "verdict": "PASS",
+      "found": [],
+      "uncertainties": [],
+      "duration_s": 1.655,
+      "ok": true,
+      "trace_steps": 4
+    },
+    {
+      "case": "stain",
+      "expected": [
+        "stain"
+      ],
+      "verdict": "FAIL",
+      "found": [
+        "stain"
+      ],
+      "uncertainties": [],
+      "duration_s": 1.331,
+      "ok": true,
+      "trace_steps": 5
+    },
+    {
+      "case": "missing_item",
+      "expected": [
+        "missing_item"
+      ],
+      "verdict": "FAIL",
+      "found": [
+        "missing_item"
+      ],
+      "uncertainties": [],
+      "duration_s": 2.746,
+      "ok": true,
+      "trace_steps": 5
+    },
+    {
+      "case": "foreign_object",
+      "expected": [
+        "foreign_object"
+      ],
+      "verdict": "FAIL",
+      "found": [
+        "foreign_object"
+      ],
+      "uncertainties": [],
+      "duration_s": 2.163,
+      "ok": true,
+      "trace_steps": 5
+    },
+    {
+      "case": "wrong_label",
+      "expected": [
+        "wrong_label"
+      ],
+      "verdict": "FAIL",
+      "found": [
+        "wrong_label"
+      ],
+      "uncertainties": [],
+      "duration_s": 3.09,
+      "ok": true,
+      "trace_steps": 4
+    },
+    {
+      "case": "clean_blur",
+      "expected": [],
+      "verdict": "PASS",
+      "found": [],
+      "uncertainties": [],
+      "duration_s": 1.582,
+      "ok": true,
+      "trace_steps": 6
+    },
+    {
+      "case": "clean_low_contrast",
+      "expected": [],
+      "verdict": "HUMAN_REVIEW",
+      "found": [],
+      "uncertainties": [
+        "image quality unrecoverable after 3 corrective actions: ['low_contrast']"
+      ],
+      "duration_s": 2.259,
+      "ok": true,
+      "trace_steps": 4
+    },
+    {
+      "case": "clean_underexposed",
+      "expected": [],
+      "verdict": "HUMAN_REVIEW",
+      "found": [],
+      "uncertainties": [
+        "image quality unrecoverable after 3 corrective actions: ['low_contrast', 'underexposed']"
+      ],
+      "duration_s": 0.89,
+      "ok": true,
+      "trace_steps": 4
+    },
+    {
+      "case": "clean_perspective",
+      "expected": [],
+      "verdict": "PASS",
+      "found": [],
+      "uncertainties": [],
+      "duration_s": 3.143,
+      "ok": true,
+      "trace_steps": 4
+    },
+    {
+      "case": "stain_blur",
+      "expected": [
+        "stain"
+      ],
+      "verdict": "FAIL",
+      "found": [
+        "stain"
+      ],
+      "uncertainties": [],
+      "duration_s": 1.342,
+      "ok": true,
+      "trace_steps": 7
+    }
+  ]
+}
